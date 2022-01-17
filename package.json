@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "agenda": "^4.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^14.1.0",
     "express": "^4.17.2",
     "minio": "^7.0.26",
