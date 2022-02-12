@@ -3,6 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cronJob = require("./api/cron/cron.js");
+const queueJob = require("./api/jobs/jobs.js");
+
 /**
  * app config
  */
@@ -17,12 +20,16 @@ const database = process.env.DATABASE_URL || "";
 app.use(cors());
 
 /**
- * cron
+ * cron jobs
  */
 
+cronJob();
+
 /**
- * cron
+ * queue jobs
  */
+
+queueJob(app);
 
 mongoose
   .connect(database, {
